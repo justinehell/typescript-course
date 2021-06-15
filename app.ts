@@ -1,15 +1,14 @@
-const person = {
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string]; // tuple type = special array with lifex length and respectively type
+} = {
   name: 'Justine',
   age: 30,
   hobbies: ['Sports', 'Web Dev'],
+  role: [2, 'author'],
 };
 
-console.log(person.name);
-
-let favoriteActivities: string[];
-favoriteActivities = ['Sports'];
-
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase()); // works because TS knows hobby is a string
-  // console.log(hobby.map()) --> Error because map doesn't exist on type string
-}
+person.role.push('admin'); // doesn't throw an err (exception)
+person.role[1] = 10; // throw err

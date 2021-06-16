@@ -1,16 +1,19 @@
-function add(n1, n2) {
-  return n1 + n2;
+var userInput;
+var userName;
+userInput = 5;
+userInput = 'Max';
+userName = userInput;
+var userInput2;
+var userName2;
+userInput2 = 5;
+userInput2 = 'Max';
+//userName2 = userInput2; // error The 'unknown' is not assignable to type 'string'
+// we need to check the type before assigning the value of an unknown type to another variable with a fixed type
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
-function add2(n1, n2) {
-  return n1.toString() + n2.toString();
+// unknown has at least some type checking, you cannot do whatever you want
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
 }
-function printResult(num) {
-  console.log('Result: ', +num);
-}
-printResult(add(5, 12)); // Result: 17
-console.log(printResult(add(5, 12))); // undefined
-
-function printResult2(num) {
-  console.log('Result: ', +num);
-  return;
-}
+generateError('An error occured!', 500);

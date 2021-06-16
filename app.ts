@@ -19,3 +19,12 @@ console.log(combinedValues(8, 8)); // undefined because printResult only have 1 
 
 let combinedValuesWithoutParams: () => number; // define a function without params, return a number
 let combinedValuesWithParams: (a: number, b: number) => number; // define a function with 2 params number, return a number
+
+function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {
+  const result = n1 + n2;
+  cb(result);
+}
+
+addAndHandle(10, 20, (result) => {
+  console.log(result);
+});

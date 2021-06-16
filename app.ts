@@ -1,28 +1,22 @@
-type Combinable = number | string;
-type ConversionDescriptor = 'as-number' | 'as-text';
-
-function combine(
-  input1: Combinable,
-  input2: Combinable,
-  resultConversion: ConversionDescriptor
-) {
-  let result;
-  if (
-    (typeof input1 === 'number' && typeof input2 === 'number') ||
-    resultConversion === 'as-number'
-  ) {
-    result = +input1 + +input2;
-  } else {
-    result = input1.toString() + input2.toString();
-  }
-  return result;
+function add(n1: number, n2: number): number {
+  return n1 + n2;
 }
 
-const combinedAges = combine(30, 26, 'as-number');
-console.log(combinedAges);
+function add2(n1: number, n2: number): string {
+  return n1.toString() + n2.toString();
+}
 
-const combinedStringAges = combine('30', '26', 'as-number');
-console.log(combinedStringAges);
+function printResult(num: number): void {
+  // void means that this function doesn't have a return statment (or an empty return)
+  console.log('Result: ', +num);
+}
 
-const combinedNames = combine('Max', 'Anna', 'as-text');
-console.log(combinedNames);
+printResult(add(5, 12)); // Result: 17
+console.log(printResult(add(5, 12))); // undefined
+
+// BONUS - void VS undefined type
+function printResult2(num: number): undefined {
+  // undefined means that this function MUST have an empty return statment
+  console.log('Result: ', +num);
+  return;
+}

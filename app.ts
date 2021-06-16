@@ -1,14 +1,19 @@
-const person: {
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string]; // tuple type = special array with lifex length and respectively type
-} = {
+// JS may of handling status...
+// const ADMIN = 0;
+// const READ_ONLY = 1;
+// const AUTHOR = 2;
+
+enum Role {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+// enum assigns labels to numbers by default (but we can assign a custom value, like so Admin = 5, READ_ONLY = "READ" etc...)
+
+const person = {
   name: 'Justine',
   age: 30,
   hobbies: ['Sports', 'Web Dev'],
-  role: [2, 'author'],
+  //role: ADMIN,
+  role: Role.ADMIN,
 };
-
-person.role.push('admin'); // doesn't throw an err (exception)
-person.role[1] = 10; // throw err
